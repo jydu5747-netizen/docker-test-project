@@ -1,0 +1,12 @@
+name: Docker Auto Test
+on: [push] # 当你推代码时触发
+
+jobs:
+  run-docker-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4 # 拉取代码
+      - name: Run Docker
+        run: |
+          docker build -t my-app .
+          docker run my-app
